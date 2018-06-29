@@ -20,7 +20,7 @@
         <h2>Buscar Orientação</h2>
 
         <div>
-            <form action="./buscar-orientacao" method="post">
+            <form action="./orientacao" method="get">
                 <label for="nome">Tema</label>
                 <input type="text" id="tema" name="tema">
                 <label for="nomeA">Nome do Aluno</label>
@@ -29,7 +29,7 @@
                 <input type="text" id="nomeP" name="professor">
 
                 <input type="submit" />
-                <a href="./pagina-inicial" id="voltar">
+                <a href="./menu" id="voltar">
                     Voltar
                 </a>
             </form>

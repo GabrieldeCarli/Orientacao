@@ -16,14 +16,15 @@ import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author Caroline
+ * @author renil
  */
-@WebServlet(urlPatterns = {"/pagina-inicial"})
-public class PaginaInicialController extends HttpServlet {
+@WebServlet(name = "MenuResource", urlPatterns = {"/menu"})
+public class MenuResource extends HttpServlet {
 
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
 
-        // Valida login
         HttpSession session = request.getSession(true);
         if (session.getAttribute("usuario.logado") == null) {
             response.sendRedirect("./login");
@@ -39,15 +40,15 @@ public class PaginaInicialController extends HttpServlet {
                 case "Cadastrar Orientacao":
                     request.getRequestDispatcher("CadastrarOrientacaoController.java").forward(request, response);
                     break;
-                    
+
                 case "Cadastrar Professor":
                     request.getRequestDispatcher("CadastrarProfessorController.java").forward(request, response);
                     break;
-                    
+
                 case "Buscar Professor":
                     request.getRequestDispatcher("BuscarProfessorController.java").forward(request, response);
                     break;
-                    
+
                 case "Buscar Orientacao":
                     request.getRequestDispatcher("BuscarOrientacaoController.java").forward(request, response);
                     break;
@@ -58,12 +59,18 @@ public class PaginaInicialController extends HttpServlet {
     }
 
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        processRequest(request, response);
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
     }
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        processRequest(request, response);
+    protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        super.doPut(req, resp); //To change body of generated methods, choose Tools | Templates.
     }
+
+    @Override
+    protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        super.doDelete(req, resp); //To change body of generated methods, choose Tools | Templates.
+    }
+
 }

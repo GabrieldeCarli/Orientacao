@@ -17,16 +17,16 @@
         <h2>Página Inicial</h2>
 
         <div>
-            <form action="./buscar-professor" method="post">
+            <form action="./professor" method="get">
                 <button class="button" name="Buscar Professor">Buscar Professor</button>
             </form>
-            <form action="./buscar-orientacao" method="post">
+            <form action="./orientacao" method="get">
                 <button class="button">Buscar Orientação</button>
             </form>
-            <form action="./cadastrar-professor" method="post">   
+            <form action="./professor" method="post">   
                 <button class="button">Cadastrar Professor</button>
             </form> 
-            <form action="./cadastrar-orientacao" method="post">
+            <form action="./orientacao" method="post">
                 <button class="button">Cadastrar Orientação</button>
             </form>
         </div>

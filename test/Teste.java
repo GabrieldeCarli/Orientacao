@@ -4,7 +4,9 @@
  * and open the template in the editor.
  */
 
-import dao.UserDAO;
+import dao.PoolConexao;
+import dao.UsuarioDAO;
+import java.sql.Connection;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -18,7 +20,11 @@ import static org.junit.Assert.*;
  */
 public class Teste {
     
-    public Teste() {
+    public Teste() throws Exception {
+        Connection connection = null;
+        connection = PoolConexao.getConexao();
+        
+        
     }
     
     @BeforeClass
@@ -39,8 +45,6 @@ public class Teste {
     
     @Test
     public void conexaoTest(){
-        UserDAO con = new UserDAO();
-        con.buscaProfessor("gab");
     }
     
 }

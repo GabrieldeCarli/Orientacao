@@ -12,10 +12,10 @@ package model;
 public class Orientacao {
 
     private String aluno;
-    private String professor;
+    private int professor;
     private String tema;
 
-    public Orientacao(String aluno, String professor, String tema) {
+    public Orientacao(String aluno, int professor, String tema) {
         this.aluno = aluno;
         this.professor = professor;
         this.tema = tema;
@@ -29,11 +29,11 @@ public class Orientacao {
         this.aluno = aluno;
     }
 
-    public String getProfessor() {
+    public int getProfessor() {
         return professor;
     }
 
-    public void setProfessor(String professor) {
+    public void setProfessor(int professor) {
         this.professor = professor;
     }
 

@@ -20,12 +20,12 @@
             <% if (request.getAttribute("inserido") != null) { %>
             <p> Inserido com sucesso! </p>
             <% }%>
-            <form action="./cadastrar-professor" method="post">
+            <form action="./professor" method="post">
                 <label for="nome">Nome do Professor</label>
                 <input required type="text" id="nome" name="nome">
 
                 <input type="submit" />
-                <a href="./pagina-inicial" id="voltar">
+                <a href="./menu" id="voltar">
                     Voltar
                 </a>
             </form>

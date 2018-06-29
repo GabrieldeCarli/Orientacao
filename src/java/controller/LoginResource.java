@@ -12,19 +12,21 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import dao.UserDAO;
+import dao.UsuarioDAO;
 import model.Usuario;
+import com.google.gson.Gson;
 
 /**
  *
- * @author Caroline
+ * @author ana
  */
 @WebServlet(urlPatterns = {"/login"})
-public class LoginController extends HttpServlet {
+public class LoginResource extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
         response.setContentType("text/html;charset=UTF-8");
         request.getRequestDispatcher("LoginView.jsp").forward(request, response);
     }
@@ -33,19 +35,21 @@ public class LoginController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        UserDAO con = new UserDAO();
-
         String email = request.getParameter("email");
         String senha = request.getParameter("senha");
 
-        Usuario usuario = con.buscaPorEmailESenha(email, senha);
+        Usuario usuario = UsuarioDAO.buscaPorEmailESenha(email, senha);
 
-
+        Gson gson = new Gson();
+        String json = gson.toJson(usuario);
+        response.setContentType("application/json");
+        response.getWriter().write(json);
+        
         // Se usuário existir
         if (usuario != null) {
             HttpSession session = request.getSession();
             session.setAttribute("usuario.logado", usuario);
-            response.sendRedirect("./pagina-inicial");
+            response.sendRedirect("./menu");
         } else {
             response.sendRedirect("./login?erro=true");
         }

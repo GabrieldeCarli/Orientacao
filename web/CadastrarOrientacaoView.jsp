@@ -20,7 +20,7 @@
             <% if (request.getAttribute("inserido") != null) { %>
             <p> Inserido com sucesso! </p>
             <% }%>
-            <form action="./cadastrar-orientacao" method="post">
+            <form action="./orientacao" method="post">
                 <label for="nome">Tema</label>
                 <input required type="text" id="tema" name="tema">
                 <label for="nomeA">Nome do Aluno</label>
@@ -29,7 +29,7 @@
                 <input  type="text" id="professor_id" name="professor_id">
 
                 <input type="submit" />
-                <a href="./pagina-inicial" id="voltar">
+                <a href="./menu" id="voltar">
                     Voltar
                 </a>
 
